@@ -1,133 +1,58 @@
 :root {
-    --cyan: #00AEEF;
-    --magenta: #EC008C;
-    --yellow: #FFF200;
-    --dark: #0f0f0f;
-    --glass: rgba(255, 255, 255, 0.05);
+    --cyan: #00AEEF; --magenta: #EC008C; --yellow: #FFF200;
+    --dark: #0a0a0a; --glass: rgba(255, 255, 255, 0.03);
 }
 
-body {
-    background-color: var(--dark);
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--dark); color: #fff; font-family: 'Montserrat', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
-/* --- LOGO ANIMATION --- */
-.floating-logo {
-    height: 60px;
-    border-radius: 8px;
-    animation: float 4s ease-in-out infinite;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-@keyframes float {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(2deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-}
-
-/* --- NAVBAR --- */
+/* Tighter Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 5%;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    backdrop-filter: blur(15px);
-    background: rgba(15, 15, 15, 0.8);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 8%; position: fixed; width: 100%; z-index: 1000;
+    backdrop-filter: blur(15px); background: rgba(10, 10, 10, 0.7);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
+.floating-logo { height: 45px; animation: float 3s ease-in-out infinite; border-radius: 5px; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.nav-links { display: flex; list-style: none; gap: 25px; }
+.nav-links a { text-decoration: none; color: #fff; font-size: 0.9rem; font-weight: 600; opacity: 0.7; transition: 0.3s; }
+.nav-links a:hover { opacity: 1; color: var(--cyan); }
 
-/* --- HERO SECTION --- */
+/* Hero Section */
 .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
+    height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
 }
+.hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; margin-bottom: 1rem; }
+.hero h1 span { color: var(--cyan); text-shadow: 0 0 20px rgba(0, 174, 239, 0.3); }
 
-.hero-content h1 {
-    font-size: clamp(2rem, 8vw, 5rem);
-    font-weight: 900;
-    line-height: 1.1;
+/* Tighter Container & Cards */
+.container { width: 85%; max-width: 1200px; margin: auto; }
+.section { padding: 100px 0; }
+.glass-card { background: var(--glass); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); }
+
+/* Horizontal Expertise Scroll */
+.scroll-wrapper {
+    display: flex; gap: 20px; overflow-x: auto; padding: 20px 0;
+    scroll-snap-type: x mandatory; scrollbar-width: none;
 }
-
-.hero-content h1 span {
-    color: var(--cyan);
-    text-shadow: 0 0 30px var(--cyan);
+.scroll-wrapper::-webkit-scrollbar { display: none; }
+.card {
+    flex: 0 0 280px; padding: 30px; background: #111; border-radius: 15px;
+    scroll-snap-align: start; transition: 0.4s; border-bottom: 4px solid transparent;
 }
+.card:hover { transform: translateY(-10px); background: #161616; }
+.card.cyan:hover { border-color: var(--cyan); }
+.card.magenta:hover { border-color: var(--magenta); }
+.card.yellow:hover { border-color: var(--yellow); }
+.card i { font-size: 2rem; margin-bottom: 15px; color: var(--cyan); }
 
-/* --- GLASSMORPHISM CARDS --- */
-.glass-card {
-    background: var(--glass);
-    padding: 50px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-}
+/* Forms & Buttons */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; }
+input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 5px; }
+.btn-primary { background: var(--magenta); color: #fff; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: 600; }
 
-/* --- SERVICE HOVER EFFECTS --- */
-/* Container adjustment to allow overflow */
-.services-section .container {
-    overflow: hidden; /* Keeps the section clean */
-}
-
-.services-scroll-wrapper {
-    display: flex;
-    flex-wrap: nowrap; /* Prevents cards from wrapping to the next line */
-    gap: 30px;
-    overflow-x: auto; /* Enables horizontal scroll */
-    padding: 40px 10px;
-    scroll-snap-type: x mandatory; /* Makes cards "snap" into place */
-    scrollbar-width: thin; /* For Firefox */
-}
-
-/* Custom Scrollbar for Chrome, Edge, and Safari */
-.services-scroll-wrapper::-webkit-scrollbar {
-    height: 8px;
-}
-
-.services-scroll-wrapper::-webkit-scrollbar-track {
-    background: #1a1a1a;
-    border-radius: 10px;
-}
-
-.services-scroll-wrapper::-webkit-scrollbar-thumb {
-    background: linear-gradient(to right, var(--cyan), var(--magenta), var(--yellow));
-    border-radius: 10px;
-}
-
-/* Card Adjustments */
-.service-box {
-    flex: 0 0 300px; /* Each card stays exactly 300px wide */
-    scroll-snap-align: center; /* Snaps to center when scrolling */
-    background: #1a1a1a;
-    border: 1px solid rgba(255,255,255,0.05);
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.service-box:hover {
-    transform: translateY(-10px);
-}
-
-.service-box.cyan:hover { border-bottom: 5px solid var(--cyan); }
-.service-box.magenta:hover { border-bottom: 5px solid var(--magenta); }
-
-/* --- SCROLL ANIMATION CLASSES --- */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.animate-on-scroll.isVisible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Animation Classes */
+.animate { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+.animate.show { opacity: 1; transform: translateY(0); }
