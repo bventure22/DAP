@@ -1,33 +1,26 @@
-// Intersection Observer for Scroll Animations
-const observerOptions = {
-    threshold: 0.2
-};
-
+// Scroll Reveal Observer
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('isVisible');
+            entry.target.classList.add('show');
         }
     });
-}, observerOptions);
+}, { threshold: 0.1 });
 
-document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-    observer.observe(el);
-});
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
-// Smooth Navbar Shrink on Scroll
+// Horizontal Scroll with Mouse Wheel
+const scrollContainer = document.querySelector(".scroll-wrapper");
+scrollContainer.addEventListener("wheel", (evt) => {
+    if (window.innerWidth > 768) { // Only for desktop
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+    }
+}, { passive: false });
+
+// Tighter Navbar effect
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        nav.style.padding = '10px 5%';
-        nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.5)';
-    } else {
-        nav.style.padding = '20px 5%';
-        nav.style.boxShadow = 'none';
-    }
-const scrollContainer = document.querySelector(".services-scroll-wrapper");
-
-scrollContainer.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    scrollContainer.scrollLeft += evt.deltaY;
+    nav.style.padding = window.scrollY > 50 ? '10px 8%' : '15px 8%';
+    nav.style.background = window.scrollY > 50 ? 'rgba(10, 10, 10, 0.95)' : 'rgba(10, 10, 10, 0.7)';
 });
