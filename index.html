@@ -3,28 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dar Es Salaam Printmaker</title>
+    <title>DAP Tanzania | Premium Print & Design</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
-        <img src="DAP Logo.jpg" alt="DAP Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="DAP Logo.jpg" alt="DAP Logo" class="floating-logo">
+                <div class="brand-text">
+                    <span class="dap">DAP</span>
+                    <span class="tanzania">TANZANIA</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="hero">
-            <h1>Innovative Printing & Design Solutions</h1>
-            <p>Your Vision. Our Print. Excellence Delivered.</p>
-        </section>
-    </main>
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="reveal-text">Precision in <span>Every Pixel.</span></h1>
+            <p class="reveal-subtext">Dar Es Salaam's Premier Print & Graphic Powerhouse.</p>
+            <div class="cta-group">
+                <a href="#services" class="btn-primary">Our Portfolio</a>
+                <a href="#contact" class="btn-secondary">Get a Quote</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <section id="about" class="about-section section">
+        <div class="container">
+            <div class="glass-card animate-on-scroll">
+                <h2>Our Heritage</h2>
+                <p>We aren't just printers; we are <strong>visual architects</strong>. Based in the heart of Kariakoo, our team blends media expertise with cutting-edge IT to deliver world-class stationery and branding.</p>
+                <div class="management-grid">
+                    <div class="manager">
+                        <span class="role">General Manager</span>
+                        <h4>Dominic Mugusi</h4>
+                    </div>
+                    <div class="manager">
+                        <span class="role">Marketing</span>
+                        <h4>Abdallah Kiunguni</h4>
+                    </div>
+                    <div class="manager">
+                        <span class="role">ICT & Graphics</span>
+                        <h4>Bornventure Kubhota</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section section">
+        <h2 class="section-title">Expertise</h2>
+        <div class="services-container">
+            <div class="service-box animate-on-scroll cyan">
+                <i class="fas fa-print"></i>
+                <h3>Printing</h3>
+                <p>Business Cards, ID Cards, Annual Reports & Magazines.</p>
+            </div>
+            <div class="service-box animate-on-scroll magenta">
+                <i class="fas fa-pen-nib"></i>
+                <h3>Design</h3>
+                <p>Logo Creation, Branding, & Innovative Graphics.</p>
+            </div>
+            <div class="service-box animate-on-scroll yellow">
+                <i class="fas fa-palette"></i>
+                <h3>Branding</h3>
+                <p>T-Shirts, Wheel Covers, & Exhibition Displays.</p>
+            </div>
+            <div class="service-box animate-on-scroll black">
+                <i class="fas fa-globe"></i>
+                <h3>Digital</h3>
+                <p>Website Design & Online Application Forms.</p>
+            </div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
