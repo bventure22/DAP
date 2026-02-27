@@ -1,20 +1,19 @@
-// Simple Fade-in effect on scroll
-window.addEventListener('scroll', () => {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        const cardPos = card.getBoundingClientRect().top;
-        const screenPos = window.innerHeight / 1.3;
-        
-        if(cardPos < screenPos) {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }
-    });
+// Dynamic glow follow
+const glow = document.querySelector('.cursor-glow');
+document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.pageX + 'px';
+    glow.style.top = e.pageY + 'px';
 });
 
-// Initialize card styles for animation
-document.querySelectorAll('.card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'all 0.6s ease-out';
+// Reveal cards on scroll
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.neon-card').forEach(card => {
+    observer.observe(card);
 });
