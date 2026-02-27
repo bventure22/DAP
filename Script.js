@@ -25,4 +25,9 @@ window.addEventListener('scroll', () => {
         nav.style.padding = '20px 5%';
         nav.style.boxShadow = 'none';
     }
+const scrollContainer = document.querySelector(".services-scroll-wrapper");
+
+scrollContainer.addEventListener("wheel", (evt) => {
+    evt.preventDefault();
+    scrollContainer.scrollLeft += evt.deltaY;
 });
