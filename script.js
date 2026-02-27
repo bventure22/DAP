@@ -1,57 +1,37 @@
-// Dynamic glow follow
-/* Open the left side menu */
-let menuOpen = false;
+/**
+ * Dar Es Salaam Printmaker 
+ * Classic Scroll Reveal Animation
+ */
 
-function toggleNav() {
-    const drawer = document.getElementById("sideDrawer");
-    const bars = document.querySelectorAll(".bar");
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
 
-    if (!menuOpen) {
-        drawer.style.width = "350px";
-        // Animate hamburger to X (optional fun detail)
-        bars[0].style.transform = "rotate(-45deg) translate(-9px, 6px)";
-        bars[1].style.opacity = "0";
-        bars[2].style.transform = "rotate(45deg) translate(-8px, -6px)";
-        menuOpen = true;
-    } else {
-        drawer.style.width = "0";
-        // Reset hamburger
-        bars[0].style.transform = "none";
-        bars[1].style.opacity = "1";
-        bars[2].style.transform = "none";
-        menuOpen = false;
-    }
-}
-function openNav() {
-    document.getElementById("sideMenu").style.width = "300px";
-}
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150; // Trigger point
 
-/* Close the side menu */
-function closeNav() {
-    document.getElementById("sideMenu").style.width = "0";
-}
-
-// Close menu if user clicks outside of it
-window.onclick = function(event) {
-    if (event.target == document.getElementById("sideMenu")) {
-        closeNav();
-    }
-}
-const glow = document.querySelector('.cursor-glow');
-document.addEventListener('mousemove', (e) => {
-    glow.style.left = e.pageX + 'px';
-    glow.style.top = e.pageY + 'px';
-});
-
-// Reveal cards on scroll
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        } else {
+            // Optional: Remove if you want animation to play only once
+            // reveals[i].classList.remove("active"); 
         }
-    });
-}, { threshold: 0.1 });
+    }
+}
 
-document.querySelectorAll('.neon-card').forEach(card => {
-    observer.observe(card);
+// Initial check when page loads
+window.addEventListener("load", reveal);
+
+// Check when user scrolls
+window.addEventListener("scroll", reveal);
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
