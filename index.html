@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dar es Salaam Printmaker | Printing Excellence</title>
+    <title>DAP | Dar es Salaam Printmaker</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="cursor-glow"></div>
+
     <header>
         <nav>
-            <div class="logo">
+            <div class="logo-box">
                 <img src="DAP Logo.jpg" alt="DAP Logo">
-                <span>DAP</span>
+                <span class="brand">DAP</span>
             </div>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#clients">Major Clients</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -25,40 +26,71 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="neon-text">DAR ES SALAAM <span class="glow">PRINTMAKER</span></h1>
-            <p>Printing Excellence Has No Finish Line.</p>
-            <a href="#services" class="btn-neon">Explore Services</a>
+            <h1 class="neon-title">DAR ES SALAAM <br><span class="glow-blue">PRINTMAKER</span></h1>
+            <p class="motto">"Printing Excellence Has No Finish Line" </p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn cyan">Our Services</a>
+                <a href="#contact" class="btn pink">Get a Quote</a>
+            </div>
         </div>
     </section>
 
-    <section id="services" class="container">
-        <h2 class="section-title">Our Products & Services</h2>
-        <div class="grid">
-            <div class="card neon-border-blue">
-                <h3>Graphics Design</h3>
-                <p>Innovative design for company logos, fliers, brochures, and annual reports[cite: 104, 103, 109].</p>
+    <section id="services" class="section">
+        <h2 class="section-header">Creative Solutions</h2>
+        <div class="card-container">
+            <div class="neon-card blue">
+                <div class="card-icon">🎨</div>
+                <h3>Graphic Design</h3>
+                <ul>
+                    <li>Company Logos [cite: 104]</li>
+                    <li>Annual Reports [cite: 109]</li>
+                    <li>Brochures & Fliers [cite: 103]</li>
+                </ul>
             </div>
-            <div class="card neon-border-pink">
-                <h3>ID Card Solutions</h3>
-                <p>High Definition retransfer printing for technology cards and ID accessories[cite: 83, 84, 110].</p>
+            <div class="neon-card pink">
+                <div class="card-icon">🆔</div>
+                <h3>HD ID Solutions</h3>
+                <p>High Definition retransfer printer technology for technology cards[cite: 83, 84].</p>
+                <small>Staff & Student IDs [cite: 110]</small>
             </div>
-            <div class="card neon-border-green">
-                <h3>Stationery & Books</h3>
-                <p>Supply of office documents, school books, magazines, and newsletters[cite: 112, 113].</p>
-            </div>
-            <div class="card neon-border-yellow">
+            <div class="neon-card green">
+                <div class="card-icon">👕</div>
                 <h3>Branding</h3>
-                <p>T-shirts, caps, mugs, banners, and exhibition table branding[cite: 106, 108, 118].</p>
+                <ul>
+                    <li>T-shirts & Caps [cite: 106]</li>
+                    <li>Banners & Sign Boards [cite: 118]</li>
+                    <li>Exhibition Branding [cite: 107]</li>
+                </ul>
+            </div>
+            <div class="neon-card yellow">
+                <div class="card-icon">📚</div>
+                <h3>Stationery</h3>
+                <ul>
+                    <li>School Books [cite: 112]</li>
+                    <li>Office Documents [cite: 99]</li>
+                    <li>Magazines & Newsletters [cite: 113]</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <footer id="contact">
-        <div class="footer-info">
-            <h3>Connect With Us</h3>
-            <p>📍 Jangwani Street Kariakoo, Dar es Salaam [cite: 125]</p>
-            <p>📧 dap.tanzania@yahoo.com [cite: 126]</p>
-            <p>📞 +255 784 847 083 | +255 715 847 083 [cite: 129, 131]</p>
+        <div class="footer-grid">
+            <div class="location">
+                <h4>Visit Us</h4>
+                <p>Jangwani Street Kariakoo [cite: 73]</p>
+                <p>Dar es Salaam, Tanzania [cite: 73]</p>
+            </div>
+            <div class="contacts">
+                <h4>Connect</h4>
+                <p>📧 dap.tanzania@yahoo.com [cite: 126]</p>
+                <p>📞 +255 784 847 083 [cite: 129]</p>
+            </div>
+            <div class="management">
+                <h4>Management</h4>
+                <p>Dominic Mugusi (GM) [cite: 129]</p>
+                <p>Bornventure Kubhota (ICT/Graphics) [cite: 131]</p>
+            </div>
         </div>
     </footer>
 
