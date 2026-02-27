@@ -71,18 +71,50 @@ body {
 }
 
 /* --- SERVICE HOVER EFFECTS --- */
+/* Container adjustment to allow overflow */
+.services-section .container {
+    overflow: hidden; /* Keeps the section clean */
+}
+
+.services-scroll-wrapper {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents cards from wrapping to the next line */
+    gap: 30px;
+    overflow-x: auto; /* Enables horizontal scroll */
+    padding: 40px 10px;
+    scroll-snap-type: x mandatory; /* Makes cards "snap" into place */
+    scrollbar-width: thin; /* For Firefox */
+}
+
+/* Custom Scrollbar for Chrome, Edge, and Safari */
+.services-scroll-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.services-scroll-wrapper::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+
+.services-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, var(--cyan), var(--magenta), var(--yellow));
+    border-radius: 10px;
+}
+
+/* Card Adjustments */
 .service-box {
+    flex: 0 0 300px; /* Each card stays exactly 300px wide */
+    scroll-snap-align: center; /* Snaps to center when scrolling */
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.05);
     padding: 40px;
     border-radius: 15px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: #1a1a1a;
-    position: relative;
-    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
 .service-box:hover {
-    transform: scale(1.05);
-    background: #252525;
+    transform: translateY(-10px);
 }
 
 .service-box.cyan:hover { border-bottom: 5px solid var(--cyan); }
