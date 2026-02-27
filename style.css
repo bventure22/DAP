@@ -1,7 +1,101 @@
-body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
-header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #f4f4f4; }
-.logo { width: 100px; }
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 20px; }
-#hero { padding: 100px; background: #333; color: white; text-align: center; }
-/* Add specific styling for your layout here */
+:root {
+    --cyan: #00AEEF;
+    --magenta: #EC008C;
+    --yellow: #FFF200;
+    --dark: #0f0f0f;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    background-color: var(--dark);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- LOGO ANIMATION --- */
+.floating-logo {
+    height: 60px;
+    border-radius: 8px;
+    animation: float 4s ease-in-out infinite;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    background: rgba(15, 15, 15, 0.8);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.hero-content h1 span {
+    color: var(--cyan);
+    text-shadow: 0 0 30px var(--cyan);
+}
+
+/* --- GLASSMORPHISM CARDS --- */
+.glass-card {
+    background: var(--glass);
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* --- SERVICE HOVER EFFECTS --- */
+.service-box {
+    padding: 40px;
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-box:hover {
+    transform: scale(1.05);
+    background: #252525;
+}
+
+.service-box.cyan:hover { border-bottom: 5px solid var(--cyan); }
+.service-box.magenta:hover { border-bottom: 5px solid var(--magenta); }
+
+/* --- SCROLL ANIMATION CLASSES --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.isVisible {
+    opacity: 1;
+    transform: translateY(0);
+}
