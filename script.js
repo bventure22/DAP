@@ -1,4 +1,20 @@
 // Dynamic glow follow
+/* Open the left side menu */
+function openNav() {
+    document.getElementById("sideMenu").style.width = "300px";
+}
+
+/* Close the side menu */
+function closeNav() {
+    document.getElementById("sideMenu").style.width = "0";
+}
+
+// Close menu if user clicks outside of it
+window.onclick = function(event) {
+    if (event.target == document.getElementById("sideMenu")) {
+        closeNav();
+    }
+}
 const glow = document.querySelector('.cursor-glow');
 document.addEventListener('mousemove', (e) => {
     glow.style.left = e.pageX + 'px';
