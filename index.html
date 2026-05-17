@@ -1,135 +1,529 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dar es Salaam Printmaker | Graphics & Stationery Experts</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Dar es Salaam Printmaker (DAP) | Creative Media & IT Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0F172A', // Midnight Blue
+                            cyan: '#0EA5E9', // Vibrant Print Cyan
+                            light: '#F8FAFC', // Crisp Off-White
+                            slate: '#64748B', // Slate Grey
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities for Creativepool Aesthetic */
+        body { background-color: #F8FAFC; color: #0F172A; }
+        .text-outline { -webkit-text-stroke: 1px #0EA5E9; color: transparent; }
+        .image-zoom:hover img { transform: scale(1.08); }
+        .masonry-grid { display: grid; gap: 1.5rem; grid-auto-flow: dense; }
+        
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F8FAFC; }
+        ::-webkit-scrollbar-thumb { background: #0F172A; border-radius: 4px; }
+    </style>
 </head>
-<body>
+<body class="font-sans antialiased selection:bg-brand-cyan selection:text-white">
 
-    <header class="hero-section d-flex align-items-center">
-        <div class="container text-center text-white">
-            <div class="reveal">
-                <h1 class="display-2 fw-bold mb-3">DAR ES SALAAM PRINTMAKER</h1>
-                <p class="fs-4 fw-light mb-5">Your Registered Partner in Innovative Media, Printing, & IT Solutions</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="#services" class="btn btn-outline-light btn-lg">Explore Services</a>
-                    <a href="#contact" class="btn btn-light btn-lg">Contact Us</a>
+    <!-- 1. DYNAMIC HEADER & NAVIGATION -->
+    <!-- Top Bar -->
+    <div class="bg-brand-blue text-slate-300 text-xs py-2 hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <span>DAP Tanzania — Your Registered Partner in Innovative Media & IT.</span>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-brand-cyan transition-colors">Official Portal</a>
+                <a href="#" class="hover:text-brand-cyan transition-colors">Client Login</a>
+                <a href="#" class="hover:text-brand-cyan transition-colors flex items-center">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                    File Upload Portal
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav id="mainNav" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div class="w-10 h-10 bg-brand-blue rounded flex items-center justify-center">
+                        <span class="font-heading font-bold text-white text-xl">DP</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-heading font-bold text-lg leading-none tracking-tight text-brand-blue">DAP</span>
+                        <span class="text-[10px] font-semibold text-brand-cyan uppercase tracking-wider">Printmaker</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors">Our Services</a>
+                    <a href="#work" class="text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors">Featured Work</a>
+                    <a href="#magazine" class="text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors">Print Magazine</a>
+                    <a href="#careers" class="text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors">Careers/Gigs</a>
+                    <a href="mailto:dap.tanzania@yahoo.com" class="bg-brand-cyan hover:bg-sky-600 text-white px-6 py-2.5 rounded-sm font-medium text-sm transition-all duration-300 shadow-lg shadow-sky-500/30 hover:shadow-sky-500/50">
+                        Get a Quote
+                    </a>
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="py-5 bg-white text-center">
-        <div class="container reveal">
-            <h2 class="section-title">Who We Are</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <p class="lead text-muted">A professionally managed firm bridging the gap between creative design and technical execution. We leverage close relationships with major local printers and technical associates to deliver high-quality work on-call.</p>
+    <!-- 2. EDITORIAL HERO SECTION -->
+    <section class="relative pt-20 pb-28 lg:pt-32 lg:pb-40 overflow-hidden bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- Left: Typography & CTA -->
+                <div>
+                    <h2 class="text-brand-cyan font-bold tracking-widest text-sm uppercase mb-4 flex items-center">
+                        <span class="w-8 h-[2px] bg-brand-cyan mr-3 inline-block"></span> East Africa Hub
+                    </h2>
+                    <h1 class="font-heading text-5xl lg:text-7xl font-bold text-brand-blue leading-[1.1] mb-6">
+                        Bridging <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-blue-600">Creative Design</span><br>
+                        & Technical Execution.
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-10 max-w-lg leading-relaxed">
+                        A professionally managed firm leveraging the Kariakoo printing infrastructure hub to deliver high-quality media, printing, and IT solutions on call.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-brand-blue text-white px-8 py-4 rounded-sm font-medium text-center hover:bg-slate-800 transition-colors">
+                            Post a Brief / Request Quote
+                        </a>
+                        <a href="#work" class="border border-slate-300 text-brand-blue px-8 py-4 rounded-sm font-medium text-center hover:border-brand-cyan hover:text-brand-cyan transition-colors bg-white">
+                            Explore Creative Showcase
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="services" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center reveal">Our Expertise</h2>
-            <div class="row g-4 mt-2">
-                <div class="col-lg-4 col-md-6 reveal">
-                    <div class="service-card">
-                        <div class="icon-box"><i class="fas fa-palette"></i></div>
-                        <h4>Graphics Design</h4>
-                        <ul class="list-unstyled mt-3">
-                            <li><i class="fas fa-check text-success me-2"></i>Corporate Branding</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Logo & Identity Design</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Marketing Brochures</li>
-                        </ul>
+                <!-- Right: Dynamic Magazine Layout Preview -->
+                <div class="relative lg:h-[600px] w-full mt-10 lg:mt-0">
+                    <div class="absolute right-0 top-0 w-4/5 h-4/5 bg-slate-200 rounded-lg overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Print Quality" class="w-full h-full object-cover">
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 reveal">
-                    <div class="service-card">
-                        <div class="icon-box"><i class="fas fa-print"></i></div>
-                        <h4>Office & School Stationery</h4>
-                        <ul class="list-unstyled mt-3">
-                            <li><i class="fas fa-check text-success me-2"></i>Custom Letterheads</li>
-                            <li><i class="fas fa-check text-success me-2"></i>School Exercise Books</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Official Documents</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 reveal">
-                    <div class="service-card">
-                        <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
-                        <h4>IT & Publishing</h4>
-                        <ul class="list-unstyled mt-3">
-                            <li><i class="fas fa-check text-success me-2"></i>Digital Publishing</li>
-                            <li><i class="fas fa-check text-success me-2"></i>IT Consultations</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Large Format Printing</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-5 bg-white">
-        <div class="container">
-            <h2 class="section-title text-center reveal">Management Team</h2>
-            <div class="row g-4 mt-4">
-                <div class="col-md-4 reveal">
-                    <div class="team-card text-center">
-                        <div class="avatar mx-auto mb-3"><i class="fas fa-user-tie fa-3x"></i></div>
-                        <h5>Dominic Mugusi</h5>
-                        <p class="text-primary fw-bold">General Manager</p>
-                        <a href="tel:0784847083" class="btn btn-sm btn-outline-dark"><i class="fas fa-phone me-2"></i>0784 847083</a>
-                    </div>
-                </div>
-                <div class="col-md-4 reveal">
-                    <div class="team-card text-center">
-                        <div class="avatar mx-auto mb-3"><i class="fas fa-user-tag fa-3x"></i></div>
-                        <h5>Abdallah Kiunguni</h5>
-                        <p class="text-primary fw-bold">Marketing Manager</p>
-                        <a href="tel:0785611618" class="btn btn-sm btn-outline-dark"><i class="fas fa-phone me-2"></i>0785 611618</a>
-                    </div>
-                </div>
-                <div class="col-md-4 reveal">
-                    <div class="team-card text-center">
-                        <div class="avatar mx-auto mb-3"><i class="fas fa-laptop-code fa-3x"></i></div>
-                        <h5>Bornventure Kubhota</h5>
-                        <p class="text-primary fw-bold">ICT & Graphics Manager</p>
-                        <a href="tel:0785969881" class="btn btn-sm btn-outline-dark"><i class="fas fa-phone me-2"></i>0763 774 102</a>
+                    <div class="absolute left-0 bottom-0 w-3/5 h-3/5 bg-white p-4 rounded-lg shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 z-10 flex flex-col justify-between border border-slate-100">
+                        <div class="w-full h-3/4 bg-slate-100 overflow-hidden rounded">
+                            <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Stationery" class="w-full h-full object-cover">
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-heading font-bold text-sm">Premium Stationery</h4>
+                            <p class="text-xs text-slate-500 mt-1">Custom Corporate Letterheads</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="py-5 bg-dark text-white">
-        <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-4">
-                    <h5 class="mb-4">DAR ES SALAAM PRINTMAKER</h5>
-                    <p><i class="fas fa-map-marker-alt me-2 text-primary"></i> Jangwani Street Kariakoo, Dar es Salaam</p>
-                    <p><i class="fas fa-envelope me-2 text-primary"></i> dap.tanzania@yahoo.com</p>
-                    <p><i class="fas fa-university me-2 text-primary"></i> Absa Bank Tanzania Limited</p>
+    <!-- 3. THE EXPERTISE GRID (Creativepool Agency Cards) -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <h2 class="font-heading text-4xl font-bold text-brand-blue mb-4">Core Capabilities</h2>
+                    <p class="text-slate-600 max-w-xl">We operate a rigorous matrix of creative and technical services designed for the modern Swahili commercial market.</p>
                 </div>
-                <div class="col-lg-4">
-                    <h5 class="mb-4">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a></li>
-                        <li><a href="http://www.daptanzania.ac.tz" class="text-white-50 text-decoration-none">Official Website</a></li>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="group bg-brand-light p-10 border border-slate-100 hover:border-brand-cyan/30 hover:shadow-xl hover:shadow-brand-cyan/5 transition-all duration-300 relative overflow-hidden rounded-sm">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-brand-cyan transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                    <div class="w-14 h-14 bg-white shadow-sm flex items-center justify-center rounded-lg mb-8 text-brand-cyan group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-brand-blue mb-4">Graphics Design</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full mr-3"></span>Corporate Branding</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full mr-3"></span>Premium Logo & Identity Systems</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full mr-3"></span>Marketing Brochures & Collateral</li>
                     </ul>
                 </div>
-                <div class="col-lg-4 text-center">
+
+                <!-- Pillar 2 -->
+                <div class="group bg-brand-light p-10 border border-slate-100 hover:border-brand-cyan/30 hover:shadow-xl hover:shadow-brand-cyan/5 transition-all duration-300 relative overflow-hidden rounded-sm">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-brand-cyan transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                    <div class="w-14 h-14 bg-white shadow-sm flex items-center justify-center rounded-lg mb-8 text-brand-cyan group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-brand-blue mb-4">Office & School Stationery</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full mr-3"></span>Custom Corporate Letterheads</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full mr-3"></span>Custom School Exercise Books</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full mr-3"></span>Official Secure Documents</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="group bg-brand-light p-10 border border-slate-100 hover:border-brand-cyan/30 hover:shadow-xl hover:shadow-brand-cyan/5 transition-all duration-300 relative overflow-hidden rounded-sm">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-brand-cyan transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                    <div class="w-14 h-14 bg-white shadow-sm flex items-center justify-center rounded-lg mb-8 text-brand-cyan group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-brand-blue mb-4">IT & Publishing</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full mr-3"></span>Digital Publishing Systems</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full mr-3"></span>Full-Scale IT Consultations</li>
+                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full mr-3"></span>Commercial Large Format Print</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FEATURED PROJECTS & CLIENT SHOWCASES (Masonry) -->
+    <section id="work" class="py-24 bg-brand-blue text-white">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 flex justify-between items-end">
+                <h2 class="font-heading text-4xl lg:text-5xl font-bold">Featured Showcase</h2>
+                <a href="#" class="hidden md:flex items-center text-brand-cyan hover:text-white transition-colors font-medium">
+                    View Complete Portfolio <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+
+            <!-- CSS Masonry Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 auto-rows-[300px]">
+                
+                <!-- Item 1 (Spans 2 columns, 2 rows) -->
+                <div class="group relative md:col-span-2 md:row-span-2 overflow-hidden bg-slate-800 rounded-sm image-zoom cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80" alt="Corporate Brand Book Identity" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="bg-brand-cyan text-white text-xs font-bold uppercase px-3 py-1 rounded-sm mb-3 inline-block">Branding</span>
+                        <h3 class="font-heading text-3xl font-bold mb-2">Corporate Brand Book Identity</h3>
+                        <p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Comprehensive brand guidelines & visual identity execution.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="group relative overflow-hidden bg-slate-800 rounded-sm image-zoom cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Educational Publishing" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-blue to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="font-heading text-xl font-bold mb-1">Custom Educational Publishing</h3>
+                        <p class="text-brand-cyan text-sm">Stationery Division</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group relative overflow-hidden bg-slate-800 rounded-sm image-zoom cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f311?auto=format&fit=crop&w=600&q=80" alt="Large Format Printing" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-blue to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="font-heading text-xl font-bold mb-1">Outdoor Promo Banners</h3>
+                        <p class="text-brand-cyan text-sm">Large Format Division</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 (Spans 2 columns) -->
+                <div class="group relative md:col-span-2 overflow-hidden bg-slate-800 rounded-sm image-zoom cursor-pointer hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80" alt="UI/UX Web Design Template" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-blue to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full flex justify-between items-end">
+                        <div>
+                            <span class="bg-brand-cyan text-white text-[10px] font-bold uppercase px-2 py-1 rounded-sm mb-2 inline-block">Digital</span>
+                            <h3 class="font-heading text-2xl font-bold">Modern UI/UX Web Design</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-brand-cyan group-hover:border-brand-cyan transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <a href="#" class="mt-8 flex md:hidden items-center justify-center text-brand-cyan hover:text-white transition-colors font-medium">
+                View Complete Portfolio <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- 5. LATEST FROM THE PRINT & TECH MAGAZINE -->
+    <section id="magazine" class="py-24 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl font-bold text-brand-blue mb-4">Print & Tech Magazine</h2>
+                <p class="text-slate-600">Industry insights, cost analyses, and logistical updates from Tanzania's leading print authority.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-slate-100 group">
+                    <div class="h-48 overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=600&q=80" alt="Logistics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brand-cyan uppercase tracking-wider">Logistics & Hubs</span>
+                        <h3 class="font-heading text-xl font-bold text-brand-blue mt-2 mb-3 leading-snug group-hover:text-brand-cyan transition-colors">Why Kariakoo Remains the Hub of East African Print Logistics</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-2">Exploring the supply chain dominance, material availability, and rapid execution frameworks centered in Dar es Salaam.</p>
+                        <a href="#" class="text-sm font-semibold text-brand-blue flex items-center group-hover:text-brand-cyan">Read Article <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-slate-100 group">
+                    <div class="h-48 overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1615560960533-5c7aa78fbf7f?auto=format&fit=crop&w=600&q=80" alt="Offset vs Digital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brand-cyan uppercase tracking-wider">Technical Analysis</span>
+                        <h3 class="font-heading text-xl font-bold text-brand-blue mt-2 mb-3 leading-snug group-hover:text-brand-cyan transition-colors">Offset Printing vs. Digital Publishing: Cost-Benefit for Dar Schools</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-2">A comprehensive breakdown of volume printing costs versus on-demand digital publishing structures for educational institutions.</p>
+                        <a href="#" class="text-sm font-semibold text-brand-blue flex items-center group-hover:text-brand-cyan">Read Article <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-slate-100 group">
+                    <div class="h-48 overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=600&q=80" alt="Brand Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brand-cyan uppercase tracking-wider">Creative Strategy</span>
+                        <h3 class="font-heading text-xl font-bold text-brand-blue mt-2 mb-3 leading-snug group-hover:text-brand-cyan transition-colors">Designing Brands that Stand Out in the Modern Swahili Commercial Market</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-2">Cultural nuance meets corporate minimalism: how local agencies are reshaping visual identity.</p>
+                        <a href="#" class="text-sm font-semibold text-brand-blue flex items-center group-hover:text-brand-cyan">Read Article <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. MANAGEMENT TEAM & 7. CAREER OPPORTUNITIES (Split Section) -->
+    <section class="py-24 bg-white border-t border-slate-200" id="careers">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-16">
+                
+                <!-- Management Team (Takes up 2 columns) -->
+                <div class="lg:col-span-2">
+                    <h2 class="font-heading text-3xl font-bold text-brand-blue mb-8">Executive Network Profile</h2>
+                    <div class="grid sm:grid-cols-3 gap-6">
+                        
+                        <!-- Profile 1 -->
+                        <div class="group relative overflow-hidden bg-brand-light border border-slate-100 rounded-sm hover:shadow-lg transition-all duration-300">
+                            <div class="h-56 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Dominic Mugusi" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                            </div>
+                            <div class="p-5 text-center bg-white">
+                                <h4 class="font-heading font-bold text-lg text-brand-blue">Dominic Mugusi</h4>
+                                <p class="text-xs text-slate-500 font-medium mb-3">General Manager</p>
+                                <a href="tel:+255784847083" class="inline-flex items-center justify-center w-full py-2 bg-brand-light text-brand-blue text-sm font-semibold rounded hover:bg-brand-cyan hover:text-white transition-colors border border-slate-200 hover:border-brand-cyan">
+                                    <svg class="w-3.5 h-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                                    Connect
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Profile 2 -->
+                        <div class="group relative overflow-hidden bg-brand-light border border-slate-100 rounded-sm hover:shadow-lg transition-all duration-300">
+                            <div class="h-56 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Abdallah Kiunguni" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                            </div>
+                            <div class="p-5 text-center bg-white">
+                                <h4 class="font-heading font-bold text-lg text-brand-blue">Abdallah Kiunguni</h4>
+                                <p class="text-xs text-slate-500 font-medium mb-3">Marketing Manager</p>
+                                <a href="tel:+255785611618" class="inline-flex items-center justify-center w-full py-2 bg-brand-light text-brand-blue text-sm font-semibold rounded hover:bg-brand-cyan hover:text-white transition-colors border border-slate-200 hover:border-brand-cyan">
+                                    <svg class="w-3.5 h-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                                    Connect
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Profile 3 -->
+                        <div class="group relative overflow-hidden bg-brand-light border border-slate-100 rounded-sm hover:shadow-lg transition-all duration-300">
+                            <div class="h-56 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" alt="Bornventure Kubhota" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                            </div>
+                            <div class="p-5 text-center bg-white">
+                                <h4 class="font-heading font-bold text-lg text-brand-blue truncate">Bornventure Kubhota</h4>
+                                <p class="text-xs text-slate-500 font-medium mb-3">ICT & Graphics Mgr</p>
+                                <a href="tel:+255763774102" class="inline-flex items-center justify-center w-full py-2 bg-brand-light text-brand-blue text-sm font-semibold rounded hover:bg-brand-cyan hover:text-white transition-colors border border-slate-200 hover:border-brand-cyan">
+                                    <svg class="w-3.5 h-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                                    Connect
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Job Board (Sidebar Logic) -->
+                <div>
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="font-heading text-2xl font-bold text-brand-blue">Local Briefs & Jobs</h2>
+                        <span class="bg-slate-100 text-brand-cyan text-[10px] font-bold px-2 py-1 rounded">3 OPEN</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Job 1 -->
+                        <a href="#" class="block p-5 border border-slate-200 rounded-sm hover:border-brand-cyan hover:shadow-md transition-all group bg-white">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-brand-blue group-hover:text-brand-cyan transition-colors">Junior Graphic Designer</h4>
+                                <span class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded font-bold">FULL TIME</span>
+                            </div>
+                            <p class="text-sm text-slate-500 mb-2">Dar es Salaam Hub (Kariakoo)</p>
+                            <p class="text-xs text-slate-400 font-medium">Posted 2 days ago</p>
+                        </a>
+
+                        <!-- Job 2 -->
+                        <a href="#" class="block p-5 border border-slate-200 rounded-sm hover:border-brand-cyan hover:shadow-md transition-all group bg-white">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-brand-blue group-hover:text-brand-cyan transition-colors">Offset Print Press Operator</h4>
+                                <span class="bg-orange-100 text-orange-700 text-[10px] px-2 py-0.5 rounded font-bold">FREELANCE</span>
+                            </div>
+                            <p class="text-sm text-slate-500 mb-2">On-Call Requirements</p>
+                            <p class="text-xs text-slate-400 font-medium">Posted 5 days ago</p>
+                        </a>
+
+                        <!-- Job 3 -->
+                        <a href="#" class="block p-5 border border-slate-200 rounded-sm hover:border-brand-cyan hover:shadow-md transition-all group bg-white">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-brand-blue group-hover:text-brand-cyan transition-colors">Web & UI Dev Apprentice</h4>
+                                <span class="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded font-bold">INTERNSHIP</span>
+                            </div>
+                            <p class="text-sm text-slate-500 mb-2">HQ / Remote Hybrid</p>
+                            <p class="text-xs text-slate-400 font-medium">Posted 1 week ago</p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. EDITORIAL FOOTER -->
+    <footer id="contact" class="bg-brand-blue text-slate-300 border-t-[8px] border-brand-cyan pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Col 1: Overview -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6 cursor-pointer">
+                        <div class="w-8 h-8 bg-brand-cyan rounded flex items-center justify-center">
+                            <span class="font-heading font-bold text-white text-sm">DP</span>
+                        </div>
+                        <span class="font-heading font-bold text-lg leading-none text-white">DAP Tanzania</span>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-6 leading-relaxed">
+                        A professionally managed firm bridging creative design and technical execution in East Africa.
+                    </p>
+                    <div class="text-sm">
+                        <strong class="text-white block mb-1">HQ Address</strong>
+                        Jangwani Street, Kariakoo,<br>Dar es Salaam, Tanzania.
+                    </div>
+                    <div class="mt-6 p-4 bg-slate-800/50 rounded border border-slate-700 text-xs">
+                        <strong class="text-white block mb-1">Verified Banking Partner</strong>
+                        Absa Bank Tanzania Limited
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="font-heading text-white font-bold mb-6 text-lg">Platform Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-brand-cyan transition-colors">Creative Showcase</a></li>
+                        <li><a href="#" class="hover:text-brand-cyan transition-colors">Talent Network (Careers)</a></li>
+                        <li><a href="#" class="hover:text-brand-cyan transition-colors">Print Magazine</a></li>
+                        <li><a href="#" class="hover:text-brand-cyan transition-colors text-white font-medium border-b border-brand-cyan inline-block pb-0.5">Official School/Corporate Portal</a></li>
+                        <li class="pt-4"><a href="#" class="hover:text-white transition-colors text-slate-500">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors text-slate-500">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact Details -->
+                <div>
+                    <h4 class="font-heading text-white font-bold mb-6 text-lg">Direct Connect</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li>
+                            <a href="mailto:dap.tanzania@yahoo.com" class="flex items-start group">
+                                <svg class="w-5 h-5 text-brand-cyan mr-3 mt-0.5 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <div>
+                                    <span class="block text-white font-medium mb-1">Email Desk</span>
+                                    <span class="group-hover:text-brand-cyan transition-colors break-all">dap.tanzania@yahoo.com</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.daptanzania.ac.tz" target="_blank" class="flex items-start group">
+                                <svg class="w-5 h-5 text-brand-cyan mr-3 mt-0.5 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                                <div>
+                                    <span class="block text-white font-medium mb-1">Official Domain</span>
+                                    <span class="group-hover:text-brand-cyan transition-colors">www.daptanzania.ac.tz</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="pt-2">
+                            <span class="block text-white font-medium mb-2">Management Lines</span>
+                            <div class="space-y-1 text-xs font-mono bg-slate-800 p-3 rounded">
+                                <a href="tel:+255784847083" class="block hover:text-brand-cyan transition-colors">+255 784 847 083 (GM)</a>
+                                <a href="tel:+255785611618" class="block hover:text-brand-cyan transition-colors">+255 785 611 618 (MKT)</a>
+                                <a href="tel:+255763774102" class="block hover:text-brand-cyan transition-colors">+255 763 774 102 (ICT)</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h4 class="font-heading text-white font-bold mb-6 text-lg">The Print Network</h4>
+                    <p class="text-sm text-slate-400 mb-4">Subscribe for industry insights, publishing templates, and media discounts in Dar es Salaam.</p>
+                    <form onsubmit="event.preventDefault();" class="space-y-3">
+                        <input type="email" placeholder="Your corporate email address" class="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-brand-cyan transition-colors" required>
+                        <button type="submit" class="w-full bg-brand-cyan hover:bg-sky-600 text-white px-4 py-3 rounded-sm font-medium text-sm transition-all duration-300 shadow-lg shadow-sky-500/20">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Dar es Salaam Printmaker (DAP). All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-cyan transition-colors">LinkedIn Profile</a>
+                    <a href="#" class="hover:text-brand-cyan transition-colors">Twitter Feed</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Vanilla JS Interactions -->
+    <script>
+        // Sticky Header scroll effect
+        const mainNav = document.getElementById('mainNav');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                mainNav.classList.add('shadow-md');
+                mainNav.classList.remove('py-2');
+            } else {
+                mainNav.classList.remove('shadow-md');
+                mainNav.classList.add('py-0');
+            }
+        });
+    </script>
 </body>
 </html>
